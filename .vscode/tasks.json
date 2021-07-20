@@ -6,7 +6,7 @@
         {
             "label": "djangoP",
             "type": "shell",
-            "command": "cd AJAX ; py manage.py runserver",
+            "command": "cd userAuth ; py manage.py runserver",
             "problemMatcher": [],
             "group": {
                 "kind": "build",

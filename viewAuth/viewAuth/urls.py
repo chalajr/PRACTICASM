@@ -1,4 +1,4 @@
-"""userAuth URL Configuration
+"""viewAuth URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
@@ -13,11 +13,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.conf.urls import include
 from django.contrib import admin
 from django.urls import path
+from django.urls import path, include
+import core.views as core_views
 
 urlpatterns = [
-    path('', include('main.url')),
-    path('administradores/', admin.site.urls),
+    path('admin/', admin.site.urls),
+    path("", core_views.listing, name="listing"),
+    path("view_blog/<int:blog_id>/", core_views.view_blog, name="view_blog"),
+    path("see_request/", core_views.see_request),
+    path("user_info/", core_views.user_info),
+    path("user_registration", core_views.user_registration)
 ]
