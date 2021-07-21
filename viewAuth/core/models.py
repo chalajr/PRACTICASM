@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, AbstractBaseUser
 from django.db.models.deletion import CASCADE
 from django.db.models.fields import CharField
 from django.db.models.fields.related import OneToOneField
@@ -12,8 +12,8 @@ class Blog(models.Model):
 
 
 class User(AbstractUser):
-
     department = models.CharField(max_length=100)
+    fecha = models.CharField(max_length=50)
     USER_TYPE_CHOICES = (
         (1, 'client'),
         (2, 'admin'),

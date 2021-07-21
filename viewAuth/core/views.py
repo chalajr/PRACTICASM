@@ -45,7 +45,6 @@ def user_info(request):
         is_superuser: {request.user.is_superuser}
         is_active:    {request.user.is_active}
     """
-
     return HttpResponse(text, content_type="text/plain")
 
 
