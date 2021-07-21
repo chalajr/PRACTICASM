@@ -10,12 +10,9 @@ def index(request):
 
 
 def search(request, search):
-    if search is not None:
-        return render(request, "main/extra.html", {
-            "data": search
-        })
-    else:
-        return HttpResponse("No results")
+    return render(request, "main/extra.html", {
+        "data": search
+    })
 
 
 def searchEmpty(request):

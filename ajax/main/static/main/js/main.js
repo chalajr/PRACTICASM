@@ -1,8 +1,12 @@
 
 function loadCards(search){
+
     fetch(`/search/${search}`)
     .then(response => response.text())
-    .then(card => {
-            document.getElementById('cardHolder').innerHTML = `${card}`
+    .then( text => {
+            document.getElementById('cardHolder').innerHTML = `${text}`
     })
+
 }
+
+
