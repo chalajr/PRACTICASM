@@ -12,7 +12,7 @@
 <body>
 
     {{ crsf_token }}
-    <input type="search" onkeyup="loadCards(this.value)">
+    <input id=searchBar type="search" onkeyup="loadCards(this.value, 1)">
     <div id="cardHolder">
 
     </div>

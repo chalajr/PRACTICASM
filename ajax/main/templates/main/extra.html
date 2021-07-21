@@ -1,3 +1,33 @@
 <h1>Worked</h1>
-<h2>{{ data }}</h2>
+{% for item in page_obj.object_list %}
+<hr>
+<h2>{{ item.title }}</h2>
+<h2>{{ item.body }}</h2>
+<h2>{{ item.date }}</h2>
+{% empty %}
+<h2>No hay resultados de tu busqueda</h2>
+{% endfor %}
+
 <h3>{{ user }}</h3>
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+        <a data-page="1" onclick="loadCards(document.getElementById('searchBar').value, this.dataset.page )">&laquo;
+            first</a>
+        <a data-page="{{ page_obj.previous_page_number }}"
+            onclick="loadCards(document.getElementById('searchBar').value, this.dataset.page )">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+        <a data-page="{{ page_obj.next_page_number }}"
+            onclick="loadCards(document.getElementById('searchBar').value , this.dataset.page )">next</a>
+        <a data-page="{{ page_obj.paginator.num_pages }}"
+            onclick="loadCards(document.getElementById('searchBar').value , this.dataset.page )">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
