@@ -10,9 +10,13 @@ def index(request):
 
 
 def search(request, search):
-    return render(request, "main/extra.html", {
-        "data": search
-    })
+    if request.user.is_authenticated:
+        return render(request, "main/extra.html", {
+            "user": request.user,
+            "data": search
+        })
+    else:
+        return HttpResponse("ESTAS PENDEJO")
 
 
 def searchEmpty(request):
